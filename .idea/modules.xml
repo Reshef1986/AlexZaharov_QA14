@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressBook-selenium_test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressBook-selenium_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressBook-selenium_test_main.iml" filepath="$PROJECT_DIR$/.idea/modules/addressBook-selenium_test_main.iml" group="addressBook-selenium_test" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressBook-selenium_test_test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressBook-selenium_test_test.iml" group="addressBook-selenium_test" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/homWorkQa_14_27.04.2018.iml" filepath="$PROJECT_DIR$/.idea/modules/homWorkQa_14_27.04.2018.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/homWorkQa_14_27.04.2018_main.iml" filepath="$PROJECT_DIR$/.idea/modules/homWorkQa_14_27.04.2018_main.iml" group="homWorkQa_14_27.04.2018" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/homWorkQa_14_27.04.2018_test.iml" filepath="$PROJECT_DIR$/.idea/modules/homWorkQa_14_27.04.2018_test.iml" group="homWorkQa_14_27.04.2018" />
