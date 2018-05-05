@@ -91,4 +91,48 @@ public class TestBase {
             return false;
         }
     }
+
+    public void clickEnter() {
+        driver.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
+    }
+
+    public void inputEmail(String email) {
+        driver.findElement(By.name("email")).click();
+        driver.findElement(By.name("email")).clear();
+        driver.findElement(By.name("email")).sendKeys(email);
+    }
+
+    public void inputMobile(String mobile) {
+        driver.findElement(By.name("mobile")).click();
+        driver.findElement(By.name("mobile")).clear();
+        driver.findElement(By.name("mobile")).sendKeys(mobile);
+    }
+
+    public void inputAddress(String address) {
+        driver.findElement(By.name("address")).click();
+        driver.findElement(By.name("address")).clear();
+        driver.findElement(By.name("address")).sendKeys(address);
+    }
+
+    public void inputCompany(String company) {
+        driver.findElement(By.name("company")).click();
+        driver.findElement(By.name("company")).clear();
+        driver.findElement(By.name("company")).sendKeys(company);
+    }
+
+    public void inputLastName(String lastName) {
+        driver.findElement(By.name("lastname")).click();
+        driver.findElement(By.name("lastname")).clear();
+        driver.findElement(By.name("lastname")).sendKeys(lastName);
+    }
+
+    public void inputFirstName(String firstName) {
+        driver.findElement(By.name("firstname")).click();
+        driver.findElement(By.name("firstname")).clear();
+        driver.findElement(By.name("firstname")).sendKeys(firstName);
+    }
+
+    public void createKontakt() {
+        driver.findElement(By.linkText("add new")).click();
+    }
 }
