@@ -22,9 +22,34 @@ public class TestBase {
         logIn();
     }
 
+
+
+    public void openAddressbook() {
+        driver.get("http://localhost/addressbook/");
+    }
+
+
+
+    public void logIn() {
+        driver.findElement(By.name("user")).click();
+        driver.findElement(By.name("user")).clear();
+        driver.findElement(By.name("user")).sendKeys("admin");
+        driver.findElement(By.name("pass")).click();
+        driver.findElement(By.name("pass")).clear();
+        driver.findElement(By.name("pass")).sendKeys("secret");
+        driver.findElement(By.xpath("//input[@value='Login']")).click();
+    }
+
+    //Общие для группы
     public void returnToGroupPage() {
         driver.findElement(By.linkText("group page")).click();
     }
+
+    public void goToGroopsPage() {
+        driver.findElement(By.linkText("groups")).click();
+    }
+
+    //createGroup
 
     public void submitGruopCreation() {
         driver.findElement(By.name("submit")).click();
@@ -46,52 +71,30 @@ public class TestBase {
         driver.findElement(By.name("new")).click();
     }
 
-    public void goToGroopsPage() {
-        driver.findElement(By.linkText("groups")).click();
+//ModiyF
+    public void initmodifyGroup() {
+        driver.findElement(By.name("edit")).click();
     }
 
-    public void logIn() {
-        driver.findElement(By.name("user")).click();
-        driver.findElement(By.name("user")).clear();
-        driver.findElement(By.name("user")).sendKeys("admin");
-        driver.findElement(By.name("pass")).click();
-        driver.findElement(By.name("pass")).clear();
-        driver.findElement(By.name("pass")).sendKeys("secret");
-        driver.findElement(By.xpath("//input[@value='Login']")).click();
+
+    public void confirmGroupModification() {
+        driver.findElement(By.name("update")).click();
     }
 
-    public void openAddressbook() {
-        driver.get("http://localhost/addressbook/");
-    }
+    //DelentGroup
     public void deleteGroup() {
         driver.findElement(By.name("delete")).click();
     }
-    @AfterClass(alwaysRun = true)
-    public void tearDown() throws Exception {
-        driver.quit();
 
-    }
     public void selectGroup() {
         driver.findElement(By.name("selected[]")).click();
     }
-    private boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
 
-    private boolean isAlertPresent() {
-        try {
-            driver.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
 
+    //CreateContact
+    public void createKontakt() {
+        driver.findElement(By.linkText("add new")).click();
+    }
     public void clickEnter() {
         driver.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
     }
@@ -132,7 +135,31 @@ public class TestBase {
         driver.findElement(By.name("firstname")).sendKeys(firstName);
     }
 
-    public void createKontakt() {
-        driver.findElement(By.linkText("add new")).click();
+
+
+//Karkas
+    private boolean isElementPresent(By by) {
+        try {
+            driver.findElement(by);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    private boolean isAlertPresent() {
+        try {
+            driver.switchTo().alert();
+            return true;
+        } catch (NoAlertPresentException e) {
+            return false;
+        }
+    }
+
+
+    @AfterClass(alwaysRun = true)
+    public void tearDown() throws Exception {
+        driver.quit();
+
     }
 }

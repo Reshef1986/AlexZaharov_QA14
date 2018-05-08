@@ -21,8 +21,8 @@ public class FirstClass {
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
-  @Test
-  public void searchWebDriverInChrome() throws Exception {
+  @Test  (enabled = false)
+  public void searchWebDriverInChrome()  {
     driver.get("https://www.google.co.il/webhp?authuser=1");
     driver.findElement(By.id("lga")).click();
     driver.findElement(By.id("lst-ib")).click();
@@ -30,6 +30,31 @@ public class FirstClass {
     driver.findElement(By.id("lst-ib")).sendKeys("wabDriver");
     driver.findElement(By.id("lst-ib")).sendKeys(Keys.ENTER);
   }
+
+
+
+
+
+
+  @Test
+  public void elmentsTest() throws InterruptedException {
+    driver.get("https://www.google.com/");
+    driver.findElement(By.id("fsettl")).click();
+
+
+
+    driver.navigate().refresh();
+    driver.findElement(By.id("fsettl")).click();
+  }
+
+
+
+
+
+
+
+
+
 
   @AfterClass(alwaysRun = true)
   public void tearDown() throws Exception {
