@@ -1,4 +1,5 @@
-import org.openqa.selenium.interactions.SourceType;
+import com.telran.addressbook.madel.GruopData;
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class CreateGroupTestt extends TestBase {
@@ -9,33 +10,43 @@ public class CreateGroupTestt extends TestBase {
     @Test(priority = 2)
     public void testCreateGroupTesttLongName(){
 
-        goToGroopsPage();
-        initGroupCreation();
-        fillGroupForm("name", "header", "footer");
-        submitGruopCreation();
-        returnToGroupPage();
-        System.out.println("testCreateGroupTesttLongName() passed");
+        app.goToGroopsPage();
+
+        int before=app.getGroupCount();
+
+        app.initGroupCreation();
+        app.fillGroupForm(new GruopData("name", "header", "footer"));
+        app.submitGruopCreation();
+        app.returnToGroupPage();
+
+        int after=app.getGroupCount();
+
+        //System.out.println("testCreateGroupTesttLongName() passed");
+        Assert.assertEquals(after,before+1);
     }
     @Test (priority = 1)
     public void testCreateGroupTesttShortName(){
 
-        goToGroopsPage();
-        initGroupCreation();
-        fillGroupForm("n", "h", "f");
-        submitGruopCreation();
-        returnToGroupPage();
-        System.out.println("testCreateGroupTesttShortName() passed");
+        app.goToGroopsPage();
+        int before=app.getGroupCount();
+        app.initGroupCreation();
+        app.fillGroupForm(new GruopData("n", "h", "f"));
+        app.submitGruopCreation();
+        app.returnToGroupPage();
+        int after=app.getGroupCount();
+       // System.out.println("testCreateGroupTesttShortName() passed");
+        Assert.assertEquals(after,before+1);
     }
 
 
-    @Test (priority = 3,enabled = true)
+    @Test (priority = 3,enabled = false)
     public void testCreateGroupTesttEmpty(){
         ;
-        goToGroopsPage();
-        initGroupCreation();
-        fillGroupForm("", "", "");
-        submitGruopCreation();
-        returnToGroupPage();
+        app.goToGroopsPage();
+        app.initGroupCreation();
+        app.fillGroupForm(new GruopData("", "", ""));
+        app.submitGruopCreation();
+        app.returnToGroupPage();
         System.out.println("testCreateGroupTesttEmpty()  passed");
     }
 

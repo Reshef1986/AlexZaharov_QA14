@@ -40,11 +40,9 @@ public class FirstClass {
   public void elmentsTest() throws InterruptedException {
     driver.get("https://www.google.com/");
     driver.findElement(By.id("fsettl")).click();
-
-
-
     driver.navigate().refresh();
-    driver.findElement(By.id("fsettl")).click();
+    driver.findElement(By.xpath("//img[@width='340']")).click();
+
   }
 
 
