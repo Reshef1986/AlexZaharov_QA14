@@ -1,3 +1,4 @@
+import com.telran.addressbook.madel.ContactData;
 import com.telran.addressbook.madel.GruopData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
@@ -147,5 +148,59 @@ public class ApplicationManager {
 
     public int getGroupCount() {
         return driver.findElements(By.name("selected[]")).size();
+    }
+
+    public void selectContakt() {
+        driver.findElement(By.xpath("//input[@name='selected[]']")).click();
+    }
+
+    public void deleteContakt() {
+        driver.findElement(By.xpath("//*[@value='Delete']")).click();
+
+
+    }
+
+    public void acceptAlert() {
+        driver.switchTo().alert().accept();
+    }
+
+    public int getContactCount() {
+      return driver.findElements(By.xpath("//input[@name='selected[]']")).size();
+    }
+
+    public void fillCantactForms(ContactData contactData) {
+        driver.findElement(By.name("firstname")).click();
+        driver.findElement(By.name("firstname")).clear();
+        driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
+
+        driver.findElement(By.name("lastname")).click();
+        driver.findElement(By.name("lastname")).clear();
+        driver.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
+
+        driver.findElement(By.name("company")).click();
+        driver.findElement(By.name("company")).clear();
+        driver.findElement(By.name("company")).sendKeys(contactData.getCompany());
+
+        driver.findElement(By.name("address")).click();
+        driver.findElement(By.name("address")).clear();
+        driver.findElement(By.name("address")).sendKeys(contactData.getAddress());
+
+        driver.findElement(By.name("mobile")).click();
+        driver.findElement(By.name("mobile")).clear();
+        driver.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
+
+        driver.findElement(By.name("email")).click();
+        driver.findElement(By.name("email")).clear();
+        driver.findElement(By.name("email")).sendKeys(contactData.getEmail());
+
+
+    }
+
+    public void initContactModification() {
+        driver.findElement(By.xpath("//img[@title='Edit']")).click();
+    }
+
+    public void confirmContactModification() {
+        driver.findElement(By.name("update")).click();
     }
 }
