@@ -1,4 +1,4 @@
-package com.telran.addressbook.madel;
+package com.telran.addresbook.madel;
 
 public class ContactData {
     private final String firstName;

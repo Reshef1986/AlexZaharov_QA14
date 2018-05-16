@@ -1,16 +1,18 @@
+package com.telran.addresbook.tests;
+
+import com.telran.addresbook.appManadger.ApplicationManager;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 public class TestBase {
 
 
-    protected final ApplicationManager app = new ApplicationManager();
+   public ApplicationManager app = new ApplicationManager();
 
     @BeforeClass(alwaysRun = true)
     public void setUp() throws Exception {
         app.start();
-        app.openAddressbook("http://localhost/addressbook/");
-        app.logIn("admin", "secret");
+        
     }
 
 
@@ -19,7 +21,7 @@ public class TestBase {
 
     @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
-        app.stop();
+        app.getContactHelper().stop();
 
     }
 
