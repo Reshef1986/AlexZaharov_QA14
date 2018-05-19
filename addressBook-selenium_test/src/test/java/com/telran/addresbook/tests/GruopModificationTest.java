@@ -11,10 +11,13 @@ public class GruopModificationTest extends TestBase {
 
 
                 app.getNavigationHelper().goToGroopsPage();
+                if(!app.getGroupHelper().isThereAGruop()){
+                    app.getGroupHelper().createGroup();
+                }
                 int before= app.getGroupHelper().getGroupCount();
                 app.getGroupHelper().selectGroup();
                 app.getGroupHelper().initmodifyGroup();
-                app.getGroupHelper().fillGroupForm(new GruopData("new name", "new header", "new footer"));
+                app.getGroupHelper().fillGroupForm(new GruopData("b", null, "new footer"));
                 app.getGroupHelper().confirmGroupModification();
                 app.getGroupHelper().returnToGroupPage();
                 int after= app.getGroupHelper().getGroupCount();

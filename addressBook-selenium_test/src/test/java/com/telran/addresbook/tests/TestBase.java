@@ -2,14 +2,16 @@ package com.telran.addresbook.tests;
 
 import com.telran.addresbook.appManadger.ApplicationManager;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
 
 
-   public ApplicationManager app = new ApplicationManager();
+   public static ApplicationManager app = new ApplicationManager();
 
-    @BeforeClass(alwaysRun = true)
+    @BeforeSuite(alwaysRun = true)
     public void setUp() throws Exception {
         app.start();
         
@@ -19,12 +21,10 @@ public class TestBase {
 
 
 
-    @AfterClass(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void tearDown() throws Exception {
-        app.getContactHelper().stop();
+        app.stop();
 
     }
-
-
 
 }

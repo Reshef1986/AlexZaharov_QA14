@@ -10,9 +10,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
+    private WebDriver driver;
     private  ContactHelper contactHelper;
     private  NavigationHelper navigationHelper ;
-    protected WebDriver driver;
     private  GroupHelper groupHelper;
 
     public void start() {
@@ -23,6 +23,10 @@ public class ApplicationManager {
         contactHelper = new ContactHelper(driver);
         openAddressbook("http://localhost/addressbook/");
         logIn("admin", "secret");
+    }
+
+    public void stop() {
+        driver.quit();
     }
 
     public void openAddressbook(String url) {
@@ -40,23 +44,10 @@ public class ApplicationManager {
     }
 
 
-        private boolean isElementPresent(By by) {
-            try {
-               driver.findElement(by);
-                return true;
-            } catch (NoSuchElementException e) {
-                return false;
-            }
-        }
 
-    private boolean isAlertPresent() {
-            try {
-               driver.switchTo().alert();
-                return true;
-            } catch (NoAlertPresentException e) {
-                return false;
-            }
-        }
+
+
+
 
 
     public GroupHelper getGroupHelper() {

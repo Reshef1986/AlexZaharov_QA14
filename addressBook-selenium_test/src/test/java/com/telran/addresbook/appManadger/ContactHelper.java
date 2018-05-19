@@ -5,13 +5,14 @@ import com.telran.addresbook.madel.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ContactHelper {
+public class ContactHelper  extends  HelperBase{
 
-    private WebDriver driver;
+
 
     public ContactHelper (WebDriver driver) {
-        this.driver=driver;
+       super(driver);
     }
+
     public void confirmContactModification() {
         driver.findElement(By.name("update")).click();
     }
@@ -20,11 +21,7 @@ public class ContactHelper {
         driver.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
     }
 
-    public void stop() {
-       driver.quit();
-    }
 
-    //CreateContact
     public void createKontakt() {
        driver.findElement(By.linkText("add new")).click();
     }
@@ -63,9 +60,7 @@ public class ContactHelper {
         driver.findElement(By.xpath("//input[@name='selected[]']")).click();
     }
 
-    public void acceptAlert() {
-        driver.switchTo().alert().accept();
-    }
+
 
     public int getContactCount() {
       return driver.findElements(By.xpath("//input[@name='selected[]']")).size();
