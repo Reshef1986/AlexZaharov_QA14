@@ -7,8 +7,8 @@ public class DeleteGroupTest extends TestBase {
     @Test
     public  void groupDeletionTest(){
         app.getNavigationHelper().goToGroopsPage();
-        if(!app.getGroupHelper().isThereAGruop()){
-            app.getGroupHelper().createGroup();
+        if(!app.getContactHelper().isThereAContact()){
+            app.getContactHelper().createContact();
         }
         int before= app.getGroupHelper().getGroupCount();
         app.getGroupHelper().selectGroup();

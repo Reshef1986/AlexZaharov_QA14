@@ -2,6 +2,7 @@ package com.telran.addresbook.appManadger;
 
 
 import com.telran.addresbook.madel.ContactData;
+import com.telran.addresbook.madel.GruopData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,99 +15,99 @@ public class ContactHelper  extends  HelperBase{
     }
 
     public void confirmContactModification() {
-        driver.findElement(By.name("update")).click();
+        click(By.name("update"));
+
     }
 
     public void clickEnter() {
-        driver.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
+        click(By.xpath("(//input[@name='submit'])[2]"));
     }
 
 
     public void createKontakt() {
-       driver.findElement(By.linkText("add new")).click();
+       click(By.linkText("add new"));
     }
 
     public void inputMobile(String mobile) {
-        driver.findElement(By.name("mobile")).click();
-        driver.findElement(By.name("mobile")).clear();
-       driver.findElement(By.name("mobile")).sendKeys(mobile);
+        typeForOnepParameterContact(mobile);
     }
 
+
+
     public void inputAddress(String address) {
-       driver.findElement(By.name("address")).click();
-        driver.findElement(By.name("address")).clear();
-    driver.findElement(By.name("address")).sendKeys(address);
+        typeForOnepParameterContact(address);
     }
 
     public void inputCompany(String company) {
-       driver.findElement(By.name("company")).click();
-        driver.findElement(By.name("company")).clear();
-       driver.findElement(By.name("company")).sendKeys(company);
+        typeForOnepParameterContact(company);
+
     }
 
     public void inputLastName(String lastName) {
-       driver.findElement(By.name("lastname")).click();
-       driver.findElement(By.name("lastname")).clear();
-       driver.findElement(By.name("lastname")).sendKeys(lastName);
+        typeForOnepParameterContact(lastName);
+
     }
 
     public void inputFirstName(String firstName) {
-       driver.findElement(By.name("firstname")).click();
-        driver.findElement(By.name("firstname")).clear();
-       driver.findElement(By.name("firstname")).sendKeys(firstName);
+        typeForOnepParameterContact(firstName);
+
     }
 
+
+    public void inputEmail(String email) {
+        typeForOnepParameterContact(email);
+
+    }
     public void selectContakt() {
-        driver.findElement(By.xpath("//input[@name='selected[]']")).click();
-    }
+        click(By.xpath("//input[@name='selected[]']"));
 
+    }
 
 
     public int getContactCount() {
-      return driver.findElements(By.xpath("//input[@name='selected[]']")).size();
+        return driver.findElements(By.xpath("//input[@name='selected[]']")).size();
     }
 
     public void initContactModification() {
-       driver.findElement(By.xpath("//img[@title='Edit']")).click();
+        click(By.xpath("//img[@title='Edit']"));
+
     }
 
     public void fillCantactForms(ContactData contactData) {
-        driver.findElement(By.name("firstname")).click();
-        driver.findElement(By.name("firstname")).clear();
-        driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
-
-       driver.findElement(By.name("lastname")).click();
-        driver.findElement(By.name("lastname")).clear();
-        driver.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
-
-        driver.findElement(By.name("company")).click();
-        driver.findElement(By.name("company")).clear();
-        driver.findElement(By.name("company")).sendKeys(contactData.getCompany());
-
-        driver.findElement(By.name("address")).click();
-       driver.findElement(By.name("address")).clear();
-        driver.findElement(By.name("address")).sendKeys(contactData.getAddress());
-
-        driver.findElement(By.name("mobile")).click();
-        driver.findElement(By.name("mobile")).clear();
-       driver.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
-
-       driver.findElement(By.name("email")).click();
-        driver.findElement(By.name("email")).clear();
-        driver.findElement(By.name("email")).sendKeys(contactData.getEmail());
+        type(By.name("firstname"),contactData.getFirstName());
+        type(By.name("lastname"),contactData.getLastName());
+        type(By.name("company"),contactData.getCompany());
+        type(By.name("address"),contactData.getAddress());
+        type(By.name("mobile"),contactData.getMobile());
+        type(By.name("email"),contactData.getEmail());
 
 
     }
 
-    public void inputEmail(String email) {
-        driver.findElement(By.name("email")).click();
-       driver.findElement(By.name("email")).clear();
-        driver.findElement(By.name("email")).sendKeys(email);
+
+    public void typeForOnepParameterContact(String mobile) {
+        driver.findElement(By.name("mobile")).click();
+        driver.findElement(By.name("mobile")).clear();
+        driver.findElement(By.name("mobile")).sendKeys(mobile);
     }
 
     public void deleteContakt() {
-       driver.findElement(By.xpath("//*[@value='Delete']")).click();
+
+       click(By.xpath("//*[@value='Delete']"));
 
 
+
+    }
+
+    public void createContact() {
+        createKontakt();
+        fillCantactForms(new ContactData("n", "h", "f","efe","feqf","fef"));
+        clickEnter();
+
+    }
+
+    public boolean isThereAContact() {
+
+         return isElementPresent(By.name("selected[]"));
     }
 }

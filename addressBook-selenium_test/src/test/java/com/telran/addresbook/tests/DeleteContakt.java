@@ -6,6 +6,10 @@ import org.testng.annotations.Test;
 public class DeleteContakt extends TestBase {
     @Test
     public void deleteContaktTest(){
+        app.getNavigationHelper().goToContactPage();
+        if(!app.getContactHelper().isThereAContact()){
+            app.getContactHelper().createContact();
+        }
         int before= app.getContactHelper().getContactCount();
         app.getContactHelper().selectContakt();
         app.getContactHelper().deleteContakt();

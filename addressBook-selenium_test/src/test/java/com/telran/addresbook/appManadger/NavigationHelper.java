@@ -12,11 +12,20 @@ public class NavigationHelper extends HelperBase{
     }
 
     public void goToGroopsPage() {
-        if(isElementPresent(By.tagName("h1"))&&driver.findElement(By.name("h1")).getText().equals("Groups")
+        if(isElementPresent(By.tagName("h1"))&&driver.findElement(By.tagName("h1")).getText().equals("Groups")
                 && isElementPresent(By.name("new"))){
             return;
+
         }
 click(By.linkText("groups"));
 
+    }
+
+    public void goToContactPage() {
+        if(isElementPresent(By.xpath("//input[@value='Send e-Mail']"))){
+            return;
+        }else{
+            click(By.xpath("//a[@href='./']"));
+        }
     }
 }
