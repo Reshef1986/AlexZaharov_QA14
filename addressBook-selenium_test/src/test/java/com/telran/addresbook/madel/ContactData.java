@@ -1,21 +1,44 @@
 package com.telran.addresbook.madel;
 
 public class ContactData {
-    private final String firstName;
-    private final String lastName;
-    private final String company;
-    private final String address;
-    private final String mobile;
-    private final String email;
+    private  String firstName;
+    private  String lastName;
+    private  String company;
+    private  String address;
+    private  String mobile;
+    private  String email;
 
-    public ContactData(String firstName, String lastName, String company, String address, String mobile, String email) {
+    public ContactData withFirstName(String firstName) {
         this.firstName = firstName;
-        this.lastName = lastName;
-        this.company = company;
-        this.address = address;
-        this.mobile = mobile;
-        this.email = email;
+        return this;
     }
+
+    public ContactData withLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public ContactData withCompany(String company) {
+        this.company = company;
+        return this;
+    }
+
+    public ContactData withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public ContactData withMobile(String mobile) {
+        this.mobile = mobile;
+        return this;
+    }
+
+    public ContactData withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+
 
     public String getFirstName() {
         return firstName;

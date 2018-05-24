@@ -1,14 +1,25 @@
 package com.telran.addresbook.madel;
 
 public class GruopData {
-    private final String name;
-    private final String header;
-    private final String footer;
+    private  String name;
+    private  String header;
+    private  String footer;
 
-    public GruopData(String name, String header, String footer) {
+
+
+    public GruopData withName(String name) {
         this.name = name;
+        return  this;
+    }
+
+    public GruopData withHeader(String header) {
         this.header = header;
+        return this;
+    }
+
+    public GruopData withFooter(String footer) {
         this.footer = footer;
+        return  this;
     }
 
     public String getName() {

@@ -17,7 +17,7 @@ public class GruopModificationTest extends TestBase {
                 int before= app.getGroupHelper().getGroupCount();
                 app.getGroupHelper().selectGroup();
                 app.getGroupHelper().initmodifyGroup();
-                app.getGroupHelper().fillGroupForm(new GruopData("b", null, "new footer"));
+                app.getGroupHelper().fillGroupForm(new GruopData().withName("sss").withFooter("sd").withHeader("sfa"));
                 app.getGroupHelper().confirmGroupModification();
                 app.getGroupHelper().returnToGroupPage();
                 int after= app.getGroupHelper().getGroupCount();

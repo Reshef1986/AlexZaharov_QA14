@@ -28,36 +28,7 @@ public class ContactHelper  extends  HelperBase{
        click(By.linkText("add new"));
     }
 
-    public void inputMobile(String mobile) {
-        typeForOnepParameterContact(mobile);
-    }
 
-
-
-    public void inputAddress(String address) {
-        typeForOnepParameterContact(address);
-    }
-
-    public void inputCompany(String company) {
-        typeForOnepParameterContact(company);
-
-    }
-
-    public void inputLastName(String lastName) {
-        typeForOnepParameterContact(lastName);
-
-    }
-
-    public void inputFirstName(String firstName) {
-        typeForOnepParameterContact(firstName);
-
-    }
-
-
-    public void inputEmail(String email) {
-        typeForOnepParameterContact(email);
-
-    }
     public void selectContakt() {
         click(By.xpath("//input[@name='selected[]']"));
 
@@ -101,7 +72,13 @@ public class ContactHelper  extends  HelperBase{
 
     public void createContact() {
         createKontakt();
-        fillCantactForms(new ContactData("n", "h", "f","efe","feqf","fef"));
+        fillCantactForms(new ContactData()
+                .withAddress("f")
+                .withCompany("f")
+                .withEmail("fd")
+                .withFirstName("fda")
+                .withLastName("fad")
+                .withMobile("fa"));
         clickEnter();
 
     }
