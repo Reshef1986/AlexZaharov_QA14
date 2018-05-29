@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeSuite;
 public class TestBase {
 
 
-   public static ApplicationManager app = new ApplicationManager(BrowserType.IE);
+   public static ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() throws Exception {
