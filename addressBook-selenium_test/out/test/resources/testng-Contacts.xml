@@ -4,6 +4,9 @@
     <test name="testContacts" >
         <classes>
             <class name="com.telran.addresbook.tests.DeleteContakt"/>
+            <class name="com.telran.addresbook.tests.ContactModificationTest"/>
+            <class name="com.telran.addresbook.tests.CreateKontakt"/>
+            <class name="com.telran.addresbook.tests.DeleteContakt"/>
         </classes>
     </test>
 

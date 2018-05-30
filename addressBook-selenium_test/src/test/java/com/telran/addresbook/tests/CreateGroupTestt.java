@@ -9,7 +9,7 @@ public class CreateGroupTestt extends TestBase {
 
 
 
-    @Test(priority = 2)
+    @Test()
     public void testCreateGroupTesttLongName(){
 
         app.getNavigationHelper().goToGroopsPage();
@@ -29,7 +29,7 @@ public class CreateGroupTestt extends TestBase {
         //System.out.println("testCreateGroupTesttLongName() passed");
         Assert.assertEquals(after,before+1);
     }
-    @Test (priority = 1)
+    @Test ()
     public void testCreateGroupTesttShortName(){
 
         app.getNavigationHelper().goToGroopsPage();
@@ -44,7 +44,7 @@ public class CreateGroupTestt extends TestBase {
     }
 
 
-    @Test (priority = 3,enabled = false)
+    @Test ()
     public void testCreateGroupTesttEmpty(){
 
         app.getNavigationHelper().goToGroopsPage();

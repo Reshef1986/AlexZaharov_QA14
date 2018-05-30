@@ -2,16 +2,17 @@ package com.telran.addresbook.appManadger;
 
 
 import com.telran.addresbook.madel.ContactData;
-import com.telran.addresbook.madel.GruopData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
-public class ContactHelper  extends  HelperBase{
+import java.io.File;
+
+public class ContactHelper  extends  HelperBase {
 
 
-
-    public ContactHelper (WebDriver driver) {
-       super(driver);
+    public ContactHelper(WebDriver driver) {
+        super(driver);
     }
 
     public void confirmContactModification() {
@@ -24,8 +25,8 @@ public class ContactHelper  extends  HelperBase{
     }
 
 
-    public void createKontakt() {
-       click(By.linkText("add new"));
+    public void initCreateKontakt() {
+        click(By.linkText("add new"));
     }
 
 
@@ -45,14 +46,17 @@ public class ContactHelper  extends  HelperBase{
     }
 
     public void fillCantactForms(ContactData contactData) {
-        type(By.name("firstname"),contactData.getFirstName());
-        type(By.name("lastname"),contactData.getLastName());
-        type(By.name("company"),contactData.getCompany());
-        type(By.name("address"),contactData.getAddress());
-        type(By.name("mobile"),contactData.getMobile());
-        type(By.name("email"),contactData.getEmail());
+        type(By.name("firstname"), contactData.getFirstName());
+        type(By.name("lastname"), contactData.getLastName());
+        type(By.name("company"), contactData.getCompany());
+        type(By.name("address"), contactData.getAddress());
+        type(By.name("mobile"), contactData.getMobile());
+        type(By.name("email"), contactData.getEmail());
+        attach(By.name("photo"), contactData.getPhoto());
+        if (isElementPresent(By.xpath("//*[@name='new_group']"))) {
+            new Select(driver.findElement(By.xpath("//*[@name='new_group']")));
 
-
+        }
     }
 
 
@@ -64,27 +68,41 @@ public class ContactHelper  extends  HelperBase{
 
     public void deleteContakt() {
 
-       click(By.xpath("//*[@value='Delete']"));
-
+        click(By.xpath("//*[@value='Delete']"));
 
 
     }
 
     public void createContact() {
-        createKontakt();
+        initCreateKontakt();
+        File photo = new File("src/test/resources/Ya.jpeg");
         fillCantactForms(new ContactData()
                 .withAddress("f")
                 .withCompany("f")
                 .withEmail("fd")
                 .withFirstName("fda")
                 .withLastName("fad")
-                .withMobile("fa"));
+                .withMobile("fa")
+                .withPhoto(photo));
         clickEnter();
 
     }
 
     public boolean isThereAContact() {
 
-         return isElementPresent(By.name("selected[]"));
+        return isElementPresent(By.name("selected[]"));
+    }
+
+    public void addInGroup() {
+
+        driver.findElement(By.name("selected[]")).click();;
+        if (isElementPresent(By.xpath("//*[@name='new_group']"))) {
+            new Select(driver.findElement(By.xpath("//*[@name='new_group']")));
+
+        }
+        driver.findElement(By.name("add")).click();
+        click(By.xpath("//a[@href='./']"));
+
+
     }
 }

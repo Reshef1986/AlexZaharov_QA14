@@ -1,5 +1,7 @@
 package com.telran.addresbook.madel;
 
+import java.io.File;
+
 public class ContactData {
     private  String firstName;
     private  String lastName;
@@ -7,6 +9,28 @@ public class ContactData {
     private  String address;
     private  String mobile;
     private  String email;
+    private File photo;
+    private  String group;
+
+
+    public String getGroup() {
+        return group;
+    }
+
+    public  ContactData withGroup(String group) {
+        this.group = group;
+        return  this;
+    }
+
+    public File getPhoto() {
+        return photo;
+    }
+
+    public ContactData withPhoto(File photo) {
+        this.photo = photo;
+        return this;
+
+    }
 
     public ContactData withFirstName(String firstName) {
         this.firstName = firstName;
